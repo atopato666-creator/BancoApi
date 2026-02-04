@@ -1,10 +1,12 @@
 # BancoApi 
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 import sqlite3
 import requests
 import re
 
 app = Flask(__name__)
+CORS(app)
 DATABASE = "Bancodb"
 
 #validar cpf 
@@ -183,6 +185,4 @@ headers = {
 response = requests.post(url, json=payload, headers=headers)
 print("Status:", response.status_code)
 print("Resposta:", response.json())
-
-
 
